@@ -4,12 +4,26 @@
 <title>live</title>
 </head>
 <body>
+	<div style="width:100%; height:100%; overflow:hidden;">
+  <div id="img"><img src="images/comingsoonimg.jpg" /></div>
+  <div id="player" style="width:100%; height:100%;">
+  
+<script src="source/hls-js/hls.js"></script>
+<video width="100%" height="100%" id="video" controls></video>
+<script>
+var video = document.getElementById('video');
+var hls = new Hls();
+var m3u8 = "https://live-kcs.cdnvideo.ru/shaamtv/superleag/playlist.m3u8?md5=";
 
-	<div class="video-embed-container">
-                                    <iframe class="responsive-embed-item" src="http://chanel.dekhaott.com/ICCWORLDCUP/embed.html?token=7du8JE0_2OUbF0" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+hls.loadSource(m3u8+md5+"&e="+curtime);
+hls.attachMedia(video);
+hls.on(Hls.Events.MANIFEST_PARSED,function() {
+video.play();
+});
+</script> 
+    
+  </div>
 	</div>
-
-
 	<!--
 	<iframe src="frame7.htm" height="500" width="870" scrolling="no" border="0" frameborder="0" allowfullscreen></iframe>
 
